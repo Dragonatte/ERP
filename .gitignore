@@ -1,0 +1,5 @@
+#Jetbains
+/.idea
+
+#PHPComposer
+/vendor

@@ -1,0 +1,21 @@
+{
+  "name": "rmb/erp",
+  "type": "project",
+  "require-dev": {
+    "phpunit/phpunit": "^11.0.x-dev"
+  },
+  "require": {
+    "phpmailer/phpmailer": "v6.8.1",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+      "psr-4": {
+      "Rmb\\Erp\\": "src/"
+      }
+  },
+  "autoload-dev": {
+      "psr-4": {
+      "Rmb\\Erp\\Tests\\": "tests/"
+      }
+  }
+}

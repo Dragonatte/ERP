@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:200,400,600,800');
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	position: relative;
+	font-family: 'Quicksand', sans-serif;
+	min-height: 100vh;
+	background: #FFF;
+}
+
+form {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 360px;
+	background: #FFF;
+	border-radius: 8px;
+	box-shadow: 0 0 60px 0 rgba(64, 64, 64, 0.5);
+	padding: 30px;
+	max-width: calc(100% - 40px);
+	margin: 40px auto;
+}
+
+form h1 {
+	font-size: 24px;
+	font-weight: 600;
+	color: #000;
+	margin-bottom: 20px;
+}
+
+form label
+{
+	font-size: 14px;
+	color: #444;
+	font-weight: 600;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	display: block;
+}
+
+form input:not([type="submit"]) {
+	background: #FFF;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: solid 1px #555;
+	border-radius: 2px;
+	padding: 0 10px;
+	height: 30px;
+	width: 100%;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, .7);
+}
+
+form input:focus {
+	outline: none;
+	border-bottom: solid 2px #0F6DBB;
+}
+
+form input[type="submit"] {
+	background: #0F6DBB;
+	border: none;
+	border-radius: 6px;
+	padding: 10px;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400;
+	margin-top: 20px;
+	cursor: pointer;
+	transition: all .3s ease;
+	transform: translateX(188px);
+}
+
+.nope
+{
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ff0000;
+	font-size: 16px;
+	font-weight: 400;
+	margin-top: 5px;
+	border-radius: 4px;
+	color: #fff;
+}
