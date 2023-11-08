@@ -12,7 +12,12 @@ class UserController
         if (isset($_POST['email']) && isset($_POST['pass'])) {
             $users = Model::getAllUsers();
             foreach ($users as $user) {
-                if ($user['CORREO'] == $_POST['email'] && $user['CLAVE'] == $_POST['pass']) {
+                if (strcmp( trim($user['CORREO']), trim($_POST['email']) ) === 0 &&
+                    strcmp( trim($user['CLAVE']), trim($_POST['pass']) ) === 0)
+                {
+                    session_start();
+                    $_SESSION['user'] = $user;
+                    var_dump($_SESSION);
                     return true;
                 }
             }

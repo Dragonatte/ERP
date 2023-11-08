@@ -20,14 +20,14 @@ class Model
 
         }
     }
-    public static function getAllUsers(): array
+    public static function getAllUsers(): array | false
 	{
         self::_connect();
         $stm = self::$_con->prepare('SELECT * FROM restaurante');
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
 	}
-    public static function getUserById(int $id): array
+    public static function getUserById(int $id): array | false
     {
         self::_connect();
         $stm = self::$_con->prepare('SELECT * FROM restaurante WHERE CODIGO = :id');
@@ -35,11 +35,20 @@ class Model
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
-    public static function getUserByMail(string $mail): array
+
+    public static function getAllProducts(): array | false
     {
         self::_connect();
-        $stm = self::$_con->prepare('SELECT * FROM restaurante WHERE CORREO = :mail');
-        $stm->bindParam(':user', $mail);
+        $stm = self::$_con->prepare('SELECT * FROM producto');
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getProductsByCategory(string $category): array | false
+    {
+        self::_connect();
+        $stm = self::$_con->prepare('SELECT * FROM producto WHERE COD_CAT = (SELECT CODIGO FROM categoria WHERE NOMBRE = :category)');
+        $stm->bindParam(':category', $category);
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -11,15 +11,22 @@
 <body>
 	<form action="" method="post">
 		<h1>Iniciar sesi&oacute;n</h1>
-		<?php
 
+		<?php
 		require_once '../controller/UserController.php';
     use Rmb\Erp\controller\UserController;
-
+		if(isset($_GET['redirected'])){
+			echo <<<EOD
+			<div class="nope">
+				<p>Debes iniciar sesi&oacute;n para acceder a esta p&aacute;gina</p>
+			</div>
+			EOD;
+    }
     if(isset($_POST['email']) && isset($_POST['pass'])){
 			$res = UserController::verificarUser();
 			if($res){
-				header('Location: ../view/home.php');
+				header('Location: ./home.php');
+				die();
 			}else{
         echo <<<EOD
 				<div class="nope">

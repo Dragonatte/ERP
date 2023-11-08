@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:200,400,600,800');
+
+*,
+::after,
+::before
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	font-family: 'Quicksand', sans-serif;
+}
+
+.tabs
+{
+	position: absolute;
+	top: -40px;
+	left: 0;
+}
+
+.tabs>a
+{
+	display: inline-block;
+	text-decoration: none;
+	color: #000;
+	font-weight: bolder;
+	margin: 10px 20px;
+}
+
+.tabs>a.active::after
+{
+	content: '';
+	margin-top: 2px;
+	display: block;
+	width: 100%;
+	height: 4px;
+	background-color: #4c74af;
+	border-radius: 4px;
+}
+
+.content
+{
+	position: absolute;
+	top: 80px;
+	left: 50%;
+	transform: translate(-50%);
+	width: 100%;
+	padding: 20px;
+	max-width: 1080px;
+	border: solid 1px #ccc;
+	border-radius: 8px;
+}
+
+table
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td
+{
+	text-align: left;
+	padding: 8px;
+}
+
+th, tr
+{
+	border-bottom: solid 1px #ccc;
+}
+
+th:not(th:last-child)::after
+{
+	content: '';
+	display: block;
+	width: 2px;
+	height: 85%;
+	border-left: 10px solid #ccc;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+input
+{
+	font-family: 'Quicksand', sans-serif;
+	height: 40px;
+	padding: 10px;
+	border-radius: 2px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: solid 1px #555;
+	width: 70%;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, .7);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+{
+	-webkit-appearance: none;
+	background: #FFF url("../res/icn/spin_icon.svg") no-repeat center center;
+	width: 1em;
+  opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
+  position: absolute;
+  top: 0;
+  right: 2px;
+  bottom: 0;
+}
+
+input:focus
+{
+	outline: none;
+}
+
+button {
+	font-family: 'Quicksand', sans-serif;
+	height: 43px;
+	padding: 10px;
+	margin-left: 10px;
+	border-radius: 4px;
+	width: 25%;
+	border: solid 1px #ccc;
+	background-color: #4c74af;
+	color: #fff;
+	cursor: pointer;
+}
