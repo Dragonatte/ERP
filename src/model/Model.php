@@ -47,7 +47,7 @@ class Model
     public static function getProductsByCategory(string $category): array | false
     {
         self::_connect();
-        $stm = self::$_con->prepare('SELECT * FROM producto WHERE COD_CAT = (SELECT CODIGO FROM categoria WHERE NOMBRE = :category)');
+        $stm = self::$_con->prepare('SELECT * FROM producto WHERE COD_CAT = (SELECT CODIGO FROM categoria WHERE NOMBRE LIKE :category)');
         $stm->bindParam(':category', $category);
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);

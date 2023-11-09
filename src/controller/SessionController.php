@@ -8,7 +8,14 @@ class SessionController
     {
         session_start();
         if(!isset($_SESSION['user'])) {
-            header('Location: ./index.php?redirected=true');
+            header('Location: ../index.php?redirected=true');
         }
+    }
+
+    public static function logout(): void
+    {
+        session_start();
+        session_destroy();
+        header('Location: ./index.php');
     }
 }

@@ -15,6 +15,13 @@
 		<?php
 		require_once '../controller/UserController.php';
     use Rmb\Erp\controller\UserController;
+		session_start();
+
+		if(isset($_GET['logout'])){
+			session_destroy();
+			unset($_GET['logout']);
+		}
+
 		if(isset($_GET['redirected'])){
 			echo <<<EOD
 			<div class="nope">
@@ -25,7 +32,7 @@
     if(isset($_POST['email']) && isset($_POST['pass'])){
 			$res = UserController::verificarUser();
 			if($res){
-				header('Location: ./home.php');
+				header('Location: ./home/home.php');
 				die();
 			}else{
         echo <<<EOD
