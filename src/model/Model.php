@@ -20,36 +20,9 @@ class Model
 
         }
     }
-    public static function getAllUsers(): array | false
-	{
-        self::_connect();
-        $stm = self::$_con->prepare('SELECT * FROM restaurante');
-        $stm->execute();
-        return $stm->fetchAll(PDO::FETCH_ASSOC);
-	}
-    public static function getUserById(int $id): array | false
+    public static function getConnection(): PDO
     {
         self::_connect();
-        $stm = self::$_con->prepare('SELECT * FROM restaurante WHERE CODIGO = :id');
-        $stm->bindParam(':id', $id);
-        $stm->execute();
-        return $stm->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public static function getAllProducts(): array | false
-    {
-        self::_connect();
-        $stm = self::$_con->prepare('SELECT * FROM producto');
-        $stm->execute();
-        return $stm->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public static function getProductsByCategory(string $category): array | false
-    {
-        self::_connect();
-        $stm = self::$_con->prepare('SELECT * FROM producto WHERE COD_CAT = (SELECT CODIGO FROM categoria WHERE NOMBRE LIKE :category)');
-        $stm->bindParam(':category', $category);
-        $stm->execute();
-        return $stm->fetchAll(PDO::FETCH_ASSOC);
+        return self::$_con;
     }
 }

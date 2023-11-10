@@ -42,6 +42,16 @@ switch($_GET['location']) {
         </header>
         EOD;
         break;
+    case 'carrito':
+        echo <<< EOD
+        <header>
+          <h1>CARRITO</h1>
+        EOD;
+        require_once '../../components/user.php';
+        echo <<< EOD
+        </header>
+        EOD;
+        break;
     default:
         header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la p&aacute;gina');
 }

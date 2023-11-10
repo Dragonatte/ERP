@@ -2,15 +2,15 @@
 
 namespace Rmb\Erp\controller;
 
-use Rmb\Erp\model\Model;
+use Rmb\Erp\model\UserModel;
+require_once '../model/UserModel.php';
 
-require_once '../model/Model.php';
 class UserController
 {
     public static function verificarUser(): bool
     {
         if (isset($_POST['email']) && isset($_POST['pass'])) {
-            $users = Model::getAllUsers();
+            $users = UserModel::getAllUsers();
             foreach ($users as $user) {
                 if (strcmp( trim($user['CORREO']), trim($_POST['email']) ) === 0 &&
                     strcmp( trim($user['CLAVE']), trim($_POST['pass']) ) === 0)
@@ -21,8 +21,6 @@ class UserController
                     return true;
                 }
             }
-        } else {
-            return false;
         }
         return false;
     }

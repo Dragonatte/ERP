@@ -14,9 +14,10 @@ function all(): void
             <td>{$product['STOCK']}</td>
             <td>
                 <form action="../shop/compra.php" method="post">
-                    <input type="hidden" value="{$product['NOMBRE']}">
-                    <input type="number" value="0" min="0">
-                    <button>Comprar</button>
+                    <input name="producto" type="hidden" value="{$product['NOMBRE']}">
+                    <input name="location" type="hidden" value="home">
+                    <input name="cantidad" type="number" value="0" min="0">
+                    <input type="submit" value="Comprar"/>
                 </form>
             </td>
         </tr>
@@ -31,6 +32,7 @@ function all(): void
 function by_category($category):void
 {
     $products = ProductController::getProductsByCategory($category);
+    $loc = str_replace(' ', '_', $category);
     foreach ($products as $product) {
         echo <<<EOD
         <tr>
@@ -40,9 +42,10 @@ function by_category($category):void
             <td>{$product['STOCK']}</td>
             <td>
                 <form action="../shop/compra.php" method="post">
-                    <input type="hidden" value="{$product['NOMBRE']}">
-                    <input type="number" value="0" min="0">
-                    <button>Comprar</button>
+                    <input name="producto" type="hidden" value="{$product['NOMBRE']}">
+                    <input name="location" type="hidden" value="$loc">
+                    <input name="cantidad" type="number" value="0" min="0">
+                    <input type="submit" value="Comprar"/>
                 </form>
             </td>
         </tr>

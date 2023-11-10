@@ -55,54 +55,6 @@ body
 	font-family: 'Rubik', sans-serif;
 }
 
-.tabs
-{
-	position: absolute;
-	top: -40px;
-	left: 0;
-}
-
-.tabs>a
-{
-	display: inline-block;
-	text-decoration: none;
-	color: #000;
-	font-weight: bolder;
-	margin: 10px 20px;
-}
-
-.tabs>a.active::after
-{
-	content: '';
-	margin-top: 2px;
-	display: block;
-	width: 100%;
-	height: 4px;
-	background-color: #4c74af;
-	border-radius: 4px;
-	animation: rise 0.25s ease-in-out;
-	animation-fill-mode: forwards;
-	transform: translateY(10px);
-	opacity: 0;
-}
-
-@keyframes rise
-{
-	0%
-	{
-		transform: translateY(10px);
-	}
-	90%
-	{
-		transform: translateY(-5px);
-	}
-	100%
-	{
-		transform: translateY(-2px);
-		opacity: 1;
-	}
-}
-
 .content
 {
 	position: absolute;
@@ -161,46 +113,13 @@ th:not(th:first-child)::before
 	border-left: 1px solid #ccc;
 }
 
-input
-{
-	font-family: 'Rubik', sans-serif;
-	height: 40px;
-	padding: 10px;
-	border-radius: 2px;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-bottom: solid 1px #555;
-	width: 70%;
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, .7);
-	caret-color: transparent;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button
-{
-	-webkit-appearance: none;
-	background: #FFF url("../res/icn/spin_icon.svg") no-repeat center center;
-	width: 1em;
-  opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
-  position: absolute;
-  top: 0;
-  right: 2px;
-  bottom: 0;
-}
-
 form
 {
 	display: flex;
 	align-items: center;
 }
 
-input:focus
-{
-	outline: none;
-}
-
-input[type="submit"]
+input[type='submit']
 {
 	font-family: 'Rubik', sans-serif;
 	font-size: 16px;
@@ -209,10 +128,35 @@ input[type="submit"]
 	margin-left: 10px;
 	border-radius: 4px;
 	width: 25%;
+	cursor: pointer;
+}
+
+input[type='submit'].primary
+{
 	border: none;
 	background-color: #4c74af;
 	color: #fff;
-	cursor: pointer;
+}
+
+input[type='submit'].secondary
+{
+	border: solid 1px #ccc;
+	background-color: #FFF;
+	color: #000;
+}
+td:last-child
+{
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+
+input[type='submit'].delete
+{
+	min-width: 100px;
+	border: none;
+	background-color: #ff0000;
+	color: #fff;
 }
 
 .carrito:hover
@@ -225,4 +169,18 @@ input[type="submit"]
 {
 	color: #ff0000;
 	transition: 0.2s;
+}
+
+.nav
+{
+	margin-right: 8px;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+
+.nav>form>input
+{
+	margin-top: 10px;
+	min-width: 100px;
 }
