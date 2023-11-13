@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es-es">
 <head>
@@ -15,7 +19,6 @@
 		<?php
 		require_once '../controller/UserController.php';
     use Rmb\Erp\controller\UserController;
-		session_start();
 
 		if(isset($_GET['logout'])){
 			session_destroy();

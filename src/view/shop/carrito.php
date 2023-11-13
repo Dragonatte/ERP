@@ -54,9 +54,9 @@ if($c->getCarrito() != []) {
             <td>{$p['DESCRIPCION']}</td>
             <td>{$p['PESO']}</td>
             <td>{$p['STOCK']}</td>
-            <td>$cantidad</td>
+            <td><input type="number" value="$cantidad" min="0"></td>
             <td>
-                <form action="../shop/eliminar.php" method="post">
+                <form action="../../controller/eliminar.php" method="post">
                     <input type="hidden" name="producto" value="$producto">
                     <input type="submit" class="delete" value="Eliminar"/>
                 </form>
@@ -78,7 +78,7 @@ if($c->getCarrito() != []) {
 	    <form action="../home/home.php">
 	        <input type="submit" class="secondary" value="Cancelar"/>
 	    </form>
-	    <form action="../shop/compra.php" method="post">
+	    <form action="../../controller/compra.php" method="post">
 	        <input type="submit" class="primary" value="Comprar"/>
 	    </form>
 		</div>

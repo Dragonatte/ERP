@@ -1,57 +1,25 @@
 <?php
-
+echo '<header>';
 
 switch($_GET['location']) {
     case 'home':
-        echo <<< EOD
-        <header>
-          <h1>HOME</h1>
-        EOD;
-        require_once '../../components/user.php';
-        echo <<< EOD
-        </header>
-        EOD;
+        echo '<h1>HOME</h1>';
         break;
     case 'comida':
-        echo <<< EOD
-        <header>
-          <h1>COMIDA</h1>
-        EOD;
-        require_once '../../components/user.php';
-        echo <<< EOD
-        </header>
-        EOD;
+        echo '<h1>COMIDA</h1>';
         break;
     case 'bebidas_con':
-        echo <<< EOD
-        <header>
-          <h1>BEBIDAS CON</h1>
-        EOD;
-        require_once '../../components/user.php';
-        echo <<< EOD
-        </header>
-        EOD;
+        echo '<h1>BEBIDAS CON</h1>';
         break;
     case 'bebidas_sin':
-        echo <<< EOD
-        <header>
-          <h1>BEBIDAS SIN</h1>
-        EOD;
-        require_once '../../components/user.php';
-        echo <<< EOD
-        </header>
-        EOD;
+        echo '<h1>BEBIDAS SIN</h1>';
         break;
     case 'carrito':
-        echo <<< EOD
-        <header>
-          <h1>CARRITO</h1>
-        EOD;
-        require_once '../../components/user.php';
-        echo <<< EOD
-        </header>
-        EOD;
+        echo '<h1>CARRITO</h1>';
         break;
     default:
         header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la p&aacute;gina');
 }
+
+require_once '../../components/user.php';
+echo '</header>';

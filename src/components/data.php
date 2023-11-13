@@ -1,5 +1,8 @@
 <?php
 require_once '../../controller/ProductController.php';
+require_once '../../controller/CompraController.php';
+
+use Rmb\Erp\controller\CompraController;
 use Rmb\Erp\controller\ProductController;
 
 function all(): void
@@ -13,9 +16,8 @@ function all(): void
             <td>{$product['PESO']}g</td>
             <td>{$product['STOCK']}</td>
             <td>
-                <form action="../shop/compra.php" method="post">
+                <form action="" method="post">
                     <input name="producto" type="hidden" value="{$product['NOMBRE']}">
-                    <input name="location" type="hidden" value="home">
                     <input name="cantidad" type="number" value="0" min="0">
                     <input type="submit" value="Comprar"/>
                 </form>
@@ -32,7 +34,6 @@ function all(): void
 function by_category($category):void
 {
     $products = ProductController::getProductsByCategory($category);
-    $loc = str_replace(' ', '_', $category);
     foreach ($products as $product) {
         echo <<<EOD
         <tr>
@@ -41,9 +42,8 @@ function by_category($category):void
             <td>{$product['PESO']}g</td>
             <td>{$product['STOCK']}</td>
             <td>
-                <form action="../shop/compra.php" method="post">
+                <form action="" method="post">
                     <input name="producto" type="hidden" value="{$product['NOMBRE']}">
-                    <input name="location" type="hidden" value="$loc">
                     <input name="cantidad" type="number" value="0" min="0">
                     <input type="submit" value="Comprar"/>
                 </form>
@@ -56,3 +56,5 @@ function by_category($category):void
     </table>
     EOD;
 }
+if(isset($_POST['producto']) && isset($_POST['cantidad']))
+    CompraController::precompra($_POST['producto'], $_POST['cantidad']);

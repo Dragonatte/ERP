@@ -2,6 +2,9 @@
 require_once '../../controller/SessionController.php';
 use Rmb\Erp\controller\SessionController;
 SessionController::checkLog();
+if (isset($_GET['logout'])) {
+	SessionController::logout();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,6 +18,7 @@ SessionController::checkLog();
 </head>
 <body>
 	<?php
+	require_once '../../components/popup.php';
 	$_GET['location'] = 'home';
 	require_once '../../components/header.php';
 	?>

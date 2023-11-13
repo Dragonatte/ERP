@@ -226,3 +226,49 @@ input[type="submit"]
 	color: #ff0000;
 	transition: 0.2s;
 }
+
+.popup
+{
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 460px;
+	padding: 20px;
+	opacity: 0;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, .7);
+	z-index: 1;
+	display: none;
+}
+
+.popup.show
+{
+	transform: translateX(-50%) translateY(40px);
+	transition: 0.2s;
+	animation: popup 1s ease-in-out;
+	animation-direction: alternate-reverse;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 2;
+	display: inline;
+}
+
+@keyframes popup
+{
+	0%
+	{
+		opacity: 1;
+		transform: translateX(-50%) translateY(40px);
+	}
+	50%
+	{
+		opacity: 1;
+		transform: translateX(-50%) translateY(40px);
+	}
+	100%
+	{
+		opacity: 0;
+		transform: translateX(-50%) translateY(-20px);
+	}
+}

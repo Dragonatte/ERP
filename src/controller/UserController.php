@@ -9,19 +9,21 @@ class UserController
 {
     public static function verificarUser(): bool
     {
-        if (isset($_POST['email']) && isset($_POST['pass'])) {
-            $users = UserModel::getAllUsers();
-            foreach ($users as $user) {
-                if (strcmp( trim($user['CORREO']), trim($_POST['email']) ) === 0 &&
-                    strcmp( trim($user['CLAVE']), trim($_POST['pass']) ) === 0)
-                {
-                    session_start();
-                    $_SESSION['user'] = $user;
-                    var_dump($_SESSION);
-                    return true;
-                }
-            }
-        }
-        return false;
+        if (!(isset($_POST['email']) && isset($_POST['pass']))) return false;
+
+        $correo = $_POST['email'];
+        $pass = $_POST['pass'];
+        $user = UserModel::getUserByCorreo($correo);
+
+        if(!$user) return false;
+
+        if(strcmp(trim($user[0]['CLAVE']), $pass) != 0) return false;
+
+        session_start();
+
+        $_SESSION['user'] = $user[0]['CORREO'];
+        $_SESSION['id'] = $user[0]['ID'];
+
+        return true;
     }
 }

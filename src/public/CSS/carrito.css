@@ -184,3 +184,31 @@ input[type='submit'].delete
 	margin-top: 10px;
 	min-width: 100px;
 }
+
+input
+{
+	font-family: 'Rubik', sans-serif;
+	height: 40px;
+	padding: 10px;
+	border-radius: 2px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: solid 1px #555;
+	width: 70%;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, .7);
+	caret-color: transparent;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+{
+	-webkit-appearance: none;
+	background: #FFF url("../res/icn/spin_icon.svg") no-repeat center center;
+	width: 1em;
+  opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
+  position: absolute;
+  top: 0;
+  right: 2px;
+  bottom: 0;
+}

@@ -15,6 +15,7 @@ SessionController::checkLog();
 </head>
 <body>
 <?php
+require_once '../../components/popup.php';
   $_GET['location'] = 'bebidas_con';
   require_once '../../components/header.php';
   ?>
