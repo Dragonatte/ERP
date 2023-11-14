@@ -63,7 +63,7 @@ body
 	transform: translate(-50%);
 	width: 100%;
 	padding: 20px;
-	max-width: 1080px;
+	max-width: 820px;
 	border: solid 1px #ccc;
 	border-radius: 8px;
 }
@@ -117,6 +117,7 @@ form
 {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 input[type='submit']
@@ -144,11 +145,17 @@ input[type='submit'].secondary
 	background-color: #FFF;
 	color: #000;
 }
-td:last-child
+td:last-child:not(#none)
 {
+	max-width: 50px;
 	display: flex;
 	justify-content: end;
 	align-items: center;
+}
+
+#none
+{
+	text-align: center;
 }
 
 input[type='submit'].delete
@@ -181,6 +188,7 @@ input[type='submit'].delete
 
 .nav>form>input
 {
+	margin-right: 6px;
 	margin-top: 10px;
 	min-width: 100px;
 }

@@ -19,19 +19,4 @@ if($_POST['cantidad'] > 0) {
 $_SESSION['get-producto'] = $_POST['producto'];
 $_SESSION['get-cantidad'] = $_POST['cantidad'];
 
-
-switch ($_POST['location'])
-{
-    case 'home':
-        header('Location: ../view/home/home.php');
-        break;
-    case 'comida':
-        header('Location: ../view/home/comida.php');
-        break;
-    case 'bebidas_sin':
-        header('Location: ../view/home/bebidas_sin.php');
-        break;
-    case 'bebidas_con':
-        header('Location: ../view/home/bebidas_con.php');
-        break;
-}
+header("Location: ../view/home/{$_POST['location']}.php");

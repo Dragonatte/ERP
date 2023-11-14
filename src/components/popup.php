@@ -9,7 +9,6 @@ if(isset($_SESSION['get-producto'])) {
 if(!isset($_GET['producto'])) echo '<div class="popup">';
 else echo '<div class="popup show">';
 ?>
-
     <div class="popup-icon">
         <img src="../../public/res/icn/success.svg" alt="success">
     </div>

@@ -18,6 +18,13 @@ if (isset($_GET['logout'])) {
 </head>
 <body>
 	<?php
+	if(isset($_GET['no-carrito'])) {
+		echo <<<EOD
+		<script>
+			alert('No hay carrito');
+		</script>
+		EOD;
+	}
 	require_once '../../components/popup.php';
 	$_GET['location'] = 'home';
 	require_once '../../components/header.php';

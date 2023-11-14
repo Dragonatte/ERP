@@ -1,8 +1,6 @@
 <?php
 require_once '../../controller/ProductController.php';
-require_once '../../controller/CompraController.php';
 
-use Rmb\Erp\controller\CompraController;
 use Rmb\Erp\controller\ProductController;
 
 function all(): void
@@ -16,10 +14,11 @@ function all(): void
             <td>{$product['PESO']}g</td>
             <td>{$product['STOCK']}</td>
             <td>
-                <form action="" method="post">
+                <form action="../../controller/meter_carrito.php" method="post">
+                    <input name="location" type="hidden" value="home">
                     <input name="producto" type="hidden" value="{$product['NOMBRE']}">
                     <input name="cantidad" type="number" value="0" min="0">
-                    <input type="submit" value="Comprar"/>
+                    <input type="submit" value="A&ntilde;adir al carrito"/>
                 </form>
             </td>
         </tr>
@@ -34,6 +33,7 @@ function all(): void
 function by_category($category):void
 {
     $products = ProductController::getProductsByCategory($category);
+    $location = str_replace(' ', '_', $category);
     foreach ($products as $product) {
         echo <<<EOD
         <tr>
@@ -42,10 +42,11 @@ function by_category($category):void
             <td>{$product['PESO']}g</td>
             <td>{$product['STOCK']}</td>
             <td>
-                <form action="" method="post">
+                <form action="../../controller/meter_carrito.php" method="post">
+                    <input name="location" type="hidden" value="$location">
                     <input name="producto" type="hidden" value="{$product['NOMBRE']}">
                     <input name="cantidad" type="number" value="0" min="0">
-                    <input type="submit" value="Comprar"/>
+                    <input type="submit" value="A&ntilde;adir al carrito"/>
                 </form>
             </td>
         </tr>
@@ -56,5 +57,3 @@ function by_category($category):void
     </table>
     EOD;
 }
-if(isset($_POST['producto']) && isset($_POST['cantidad']))
-    CompraController::precompra($_POST['producto'], $_POST['cantidad']);

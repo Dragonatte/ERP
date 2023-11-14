@@ -2,6 +2,7 @@
 
 use Rmb\Erp\controller\ProductController;
 use Rmb\Erp\model\Carrito;
+
 require_once '../../model/Carrito.php';
 
 session_start();
@@ -58,6 +59,7 @@ if($c->getCarrito() != []) {
             <td>
                 <form action="../../controller/eliminar.php" method="post">
                     <input type="hidden" name="producto" value="$producto">
+                    <input type="hidden" name="cantidad" value="$cantidad">
                     <input type="submit" class="delete" value="Eliminar"/>
                 </form>
             </td>
@@ -67,7 +69,7 @@ if($c->getCarrito() != []) {
 } else {
     echo <<<EOD
         <tr>
-            <td colspan="3">No hay productos en el carrito</td>
+            <td id="none" colspan="5">No hay productos en el carrito</td>
         </tr>
     EOD;
 }
@@ -78,7 +80,7 @@ if($c->getCarrito() != []) {
 	    <form action="../home/home.php">
 	        <input type="submit" class="secondary" value="Cancelar"/>
 	    </form>
-	    <form action="../../controller/compra.php" method="post">
+	    <form action="compra.php" method="post">
 	        <input type="submit" class="primary" value="Comprar"/>
 	    </form>
 		</div>
