@@ -12,7 +12,9 @@
 <body>
 <?php
 echo <<<EOD
-	<h1>ERROR {$_GET['error-type']}</h1>
+	<img src="../public/res/icn/error.svg" alt="error">
+	<div class="error-body">
+		<h1>ERROR {$_GET['error-type']}</h1>
 EOD;
 switch ($_GET['error-type']){
 		case '500':
@@ -30,8 +32,9 @@ switch ($_GET['error-type']){
 
 }
 echo <<<EOD
-  <p>{$_GET['error-message']}</p>
-	<a href="../view/index.php">Volver al inicio</a>
+	  <p>{$_GET['error-message']}</p>
+		<a href="../view/home/home.php">Volver al inicio</a>
+	</div>
 EOD;
 ?>
 </body>
