@@ -80,7 +80,7 @@ if($c->getCarrito() != []) {
 	    <form action="../home/home.php">
 	        <input type="submit" class="secondary" value="Cancelar"/>
 	    </form>
-	    <form action="compra.php" method="post">
+	    <form action="./compra.php" method="post">
 	        <input type="submit" class="primary" value="Comprar"/>
 	    </form>
 		</div>

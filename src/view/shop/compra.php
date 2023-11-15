@@ -3,7 +3,7 @@
 session_start();
 global $c;
 if(!isset($_SESSION['carrito'])) {
-    header('Location: ../home/home.php?no-carrito');
+    //header('Location: ../home/home.php? no-carrito=true');
 } else {
     $c = $_SESSION['carrito'];
 }

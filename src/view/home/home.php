@@ -19,11 +19,7 @@ if (isset($_GET['logout'])) {
 <body>
 	<?php
 	if(isset($_GET['no-carrito'])) {
-		echo <<<EOD
-		<script>
-			alert('No hay carrito');
-		</script>
-		EOD;
+		require_once '../../components/no-carrito-popup.php';
 	}
 	require_once '../../components/popup.php';
 	$_GET['location'] = 'home';
