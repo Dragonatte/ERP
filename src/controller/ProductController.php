@@ -24,6 +24,8 @@ class ProductController
 
     public static function updateProductStock(string $name, int $stock): bool
     {
+        $old_stock = self::getProductByName($name)[0]['STOCK'];
+        $stock += $old_stock;
         return ProductModel::updateProductStock($name, $stock);
     }
 }

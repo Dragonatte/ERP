@@ -33,6 +33,6 @@ switch ($_GET['category']) {
         by_category('bebidas sin');
         break;
     default:
-        header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la categor&iacute;a');
+        header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la categoría');
 }
 

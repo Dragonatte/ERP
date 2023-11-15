@@ -15,6 +15,9 @@ if($_POST['cantidad'] > 0) {
     $c->addProducto($_POST['producto'], $_POST['cantidad']);
     $_SESSION['carrito'] = $c;
 }
+if($_POST['cantidad'] == 0) {
+    $_SESSION['warning'] = true;
+}
 
 $_SESSION['get-producto'] = $_POST['producto'];
 $_SESSION['get-cantidad'] = $_POST['cantidad'];

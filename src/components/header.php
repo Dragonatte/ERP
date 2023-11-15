@@ -17,8 +17,11 @@ switch($_GET['location']) {
     case 'carrito':
         echo '<h1>CARRITO</h1>';
         break;
+    case 'compra':
+        echo '<h1>COMPRA</h1>';
+        break;
     default:
-        header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la p&aacute;gina');
+        header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la página');
 }
 
 require_once '../../components/user.php';

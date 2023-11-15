@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&family=Rubik&display=swap');
+*,
+::after,
+::before
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	background-color: #fff;
+	height: 60px;
+	border-bottom: solid 1px #ccc;
+}
+
+.user
+{
+	position: absolute;
+	right: 20px;
+	top: inherit;
+	display: flex;
+	align-items: center;
+}
+
+.user img
+{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+	box-shadow: 0 0 2px #777;
+}
+
+.actions
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.actions a
+{
+	text-decoration: none;
+	color: #000;
+	font-weight: bolder;
+}
+
+body
+{
+	font-family: 'Rubik', sans-serif;
+}
+
+.success
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 550px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, .7);
+	z-index: 1;
+	display: flex;
+}
+
+.success-icon
+{
+	position: absolute;
+	
+	width: 64px;
+	height: 70%;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+
+.success-body
+{
+	margin-left: 76px;
+}
+
+.success-title
+{
+	padding-bottom: 8px;
+}
+
+.success-content
+{
+	padding-top: 4px;
+}
+
+img
+{
+	width: 100%;
+	height: 100%;
+}

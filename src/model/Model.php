@@ -12,10 +12,10 @@ class Model
     {
         if(self::$_con === null){
             try {
-                self::$_con = new PDO('mysql:host=localhost;dbname=restaurante', 'root', 'root');
+                self::$_con = new PDO('mysql:host=localhost;dbname=restaurante', 'root', '');
                 self::$_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
-                header('Location: ../view/error.php?error-type=500?error-message=Error al conectar con la base de datos?error-details=' . $e->getMessage());
+                header('Location: ../view/error.php?error-type=500&error-message=Error al conectar con la base de datos&error-details=' . $e->getMessage());
             }
 
         }

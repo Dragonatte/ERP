@@ -12,18 +12,21 @@
 <body>
 <?php
 echo <<<EOD
+	global $goto;
 	<img src="../public/res/icn/error.svg" alt="error">
 	<div class="error-body">
 		<h1>ERROR {$_GET['error-type']}</h1>
 EOD;
 switch ($_GET['error-type']){
 		case '500':
+				$goto = "../view/index.php";
 				echo <<<EOD
           <h2>Ha ocurrido un error en el servidor</h2>
           <p>Por favor, contacte con el administrador</p>
         EOD;
 				break;
 		case '404':
+				$goto = "../view/home/home.php";
 				echo <<<EOD
 				<h2>La p&aacute;gina solicitada no existe</h2>
 				<p>Por favor, compruebe los par&aacute;metros introducidos; si el error persiste, contacte al administrador.</p>
@@ -33,7 +36,8 @@ switch ($_GET['error-type']){
 }
 echo <<<EOD
 	  <p>{$_GET['error-message']}</p>
-		<a href="../view/home/home.php">Volver al inicio</a>
+	  <p>Detalles: {$_GET['error-details']}</p>
+		<a href="$goto">Volver al inicio</a>
 	</div>
 EOD;
 ?>

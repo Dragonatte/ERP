@@ -15,7 +15,13 @@ SessionController::checkLog();
 </head>
 <body>
 <?php
-require_once '../../components/popup.php';
+if(isset($_GET['no-carrito'])) {
+		require_once '../../components/no-carrito-popup.php';
+	}
+	if(isset($_SESSION['warning']))
+		require_once '../../components/warning-popup.php';
+	else
+		require_once '../../components/popup.php';
   $_GET['location'] = 'comida';
   require_once '../../components/header.php';
   ?>

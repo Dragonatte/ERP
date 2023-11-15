@@ -35,11 +35,6 @@ class ProductModel
     public static function updateProductStock(string $name, int $stock): bool
     {
         $con = Model::getConnection();
-        $stm = $con->prepare('SELECT STOCK FROM producto WHERE NOMBRE LIKE :name');
-        $stm->bindParam(':name', $name);
-        $stm->execute();
-        $stock += $stm->fetchAll(PDO::FETCH_ASSOC)[0]['STOCK'];
-
         $stm = $con->prepare('UPDATE producto SET STOCK = :stock WHERE NOMBRE LIKE :name');
         $stm->bindParam(':name', $name);
         $stm->bindParam(':stock', $stock);

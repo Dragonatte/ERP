@@ -27,7 +27,10 @@ session_start();
     $c = new Carrito();
 if(!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = $c;
-    $c->addProducto($_POST['producto'], $_POST['cantidad']);
+    if(isset($_POST['producto']) && isset($_POST['cantidad']))
+			$c->addProducto($_POST['producto'], $_POST['cantidad']);
+		else
+			$c->setCarrito([]);
 } else {
     $c = $_SESSION['carrito'];
 }

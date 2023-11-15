@@ -42,5 +42,5 @@ switch($_GET['category'])
         EOD;
         break;
     default:
-        header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la categor&iacute;a');
+        header('Location: ../error.php?error-type=404&error-message=No se ha encontrado la categoría');
 }
