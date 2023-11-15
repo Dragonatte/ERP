@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_SESSION['get-producto'])) {
-	$_GET['producto'] = $_SESSION['get-producto'];
+	$_GET['producto'] = strtolower($_SESSION['get-producto']);
 	$_GET['cantidad'] = $_SESSION['get-cantidad'];
 	unset($_SESSION['get-producto']);
 	unset($_SESSION['get-cantidad']);
@@ -17,9 +17,9 @@ else echo '<div class="popup show">';
             <h1>Producto agregado al carrito</h1>
         </div>
         <div class="popup-content">
-            <?php
-            if($_GET['cantidad'] === 1) echo `Se ha agregado 1 {$_GET['producto']} al carrito`;
-            else echo `Se han agregado {$_GET['cantidad']} {$_GET['producto']}s al carrito`;
+             <?php
+            if($_GET['cantidad'] == 1) echo "<p>Se ha agregado 1 {$_GET['producto']} al carrito</p>";
+            else echo "<p>Se han agregado {$_GET['cantidad']} {$_GET['producto']}s al carrito</p>";
             ?>
         </div>
     </div>

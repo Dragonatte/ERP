@@ -233,7 +233,7 @@ input[type="submit"]
 	top: -20px;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 460px;
+	width: 550px;
 	padding: 20px;
 	opacity: 0;
 	background-color: #fff;
@@ -251,7 +251,46 @@ input[type="submit"]
 	animation-direction: alternate-reverse;
 	animation-fill-mode: forwards;
 	animation-iteration-count: 2;
-	display: inline;
+	display: flex;
+}
+
+.popup.show-static
+{
+	top: 20px;
+	transform: translateX(-50%) translateY(40px);
+	opacity: 1;
+	animation: none;
+}
+
+.popup-icon
+{
+	position: absolute;
+	
+	width: 64px;
+	height: 70%;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+
+.popup-body
+{
+	margin-left: 76px;
+}
+
+.popup-title
+{
+	padding-bottom: 8px;
+}
+
+.popup-content
+{
+	padding-top: 4px;
+}
+
+img
+{
+	width: 100%;
+	height: 100%;
 }
 
 @keyframes popup
